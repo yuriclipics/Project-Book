@@ -7,5 +7,13 @@
 {% block content %}
     <h1>Pages</h1>
     <p>This is the page "Pages"</p>
-    <p>Check out my <a href="/">Home</a></p>
+    <p>Check out the <a href="{% url 'about_page_view' %}">About Page View</a></p>
+    <p>The current  date and time is: {% now "DATETIME_FORMAT" %}</p>
+    <p>There are {{ inventory_list|length }} items of inventory.</p>
+    <ul>
+        {% for item in inventory_list %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <p>{{ greeting|title }}</p>
 {% endblock %}
